@@ -29,6 +29,8 @@ router.post('/', asyncHandler(async (req, res) => {
     }
 }));
 
+
+
 // Update a user
 router.put('/:id', async (req, res) => {
     if (req.body._id) delete req.body._id;

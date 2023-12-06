@@ -85,6 +85,9 @@ const SiteHeader = ({ history }) => {
                       {opt.label}
                     </MenuItem>
                   ))}
+                  <Button color="inherit"  onClick={() => context.signout()}>
+      Logout
+    </Button>
                 </Menu>
               </>
             ) : (
@@ -98,6 +101,9 @@ const SiteHeader = ({ history }) => {
                     {opt.label}
                   </Button>
                 ))}
+                <Button color="inherit"  onClick={() => context.signout()}>
+      Logout
+    </Button>
               </>
             )}
         </Toolbar>
@@ -106,10 +112,85 @@ const SiteHeader = ({ history }) => {
       <Offset />
     </>
   ):(
-    <p>
-    You are not logged in{" "}
-    <button onClick={() => navigate('/login')}>Login</button>
+    <>
+      <AppBar position="fixed" color="secondary">
+        <Toolbar>
+          <Typography variant="h4" sx={{ flexGrow: 1 }}>
+            MovieInfo Free
+          </Typography>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            All you ever wanted to know about Movies!
+          </Typography>
+            {isMobile ? (
+              <>
+                <IconButton
+                  aria-label="menu"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleMenu}
+                  color="inherit"
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  open={open}
+                  onClose={() => setAnchorEl(null)}
+                >
+                  {menuOptions.map((opt) => (
+                    <MenuItem
+                      key={opt.label}
+                      onClick={() => handleMenuSelect(opt.path)}
+                    >
+                      {opt.label}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </>
+            ) : (
+              <>
+               <AppBar position="fixed" color="secondary">
+  <Toolbar>
+    <Typography variant="h4" sx={{ flexGrow: 1 }}>
+      MovieInfo Free
+    </Typography>
+    <Button color="inherit" onClick={() => handleMenuSelect('/')}>
+      Home
+    </Button>
+    
+    <Button color="inherit" onClick={() => handleMenuSelect('/favorites')}>
+      Favorites
+    </Button>
+    <Button color="inherit" onClick={() => handleMenuSelect('/login')}>
+      Login
+    </Button>
+  </Toolbar>
+</AppBar>
+                <p>
+   
+    <Button  
+  
+    color="inherit"
+    onClick={() => navigate('/login')}>Login</Button>
   </p>
+              </>
+            )}
+        </Toolbar>
+      </AppBar>
+      
+      <Offset />
+    </>
+    
   );
 };
 
