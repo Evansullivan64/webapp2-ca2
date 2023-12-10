@@ -173,15 +173,19 @@ export const getUpcomingMovies = async () => {
 //   return response.json();
 // };
 
-export const getMovieRecommendations = async () => {
-  const response = await fetch(
-    'http://localhost:8080/api/movies/tmdb/recommendations', {
-    headers: {
-      'Authorization': window.localStorage.getItem('token')
-    }
-  }
+export const getMovieRecommendations = (id) => {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1`
   )
-  return response.json();
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+      throw error;
+    });
 };
 
 export const getMovieCredits = (id) => {
