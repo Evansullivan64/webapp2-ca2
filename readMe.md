@@ -12,9 +12,25 @@ A bullet-point list of the ADDITIONAL features you have implemented in the API *
 
 ## Setup requirements.
 
-+ open two terminals, one in movies folder, and one in movies-api folder
-+ in movies folder type npm start
-+ in movies-api folder type npm run dev
+1. Open the terminal inside the movies folder and run:
+   
+2. Start the application:
+    ```sh
+    npm install
+    ```
+    ```sh
+    npm start
+    ```
+3. Open a new terminal inside the movies-api folder and run:
+   
+4. Start the application:
+    ```sh
+    npm install
+    ```
+    ```sh
+    npm run dev
+    ```
+
 
 ## API Configuration
 
@@ -66,3 +82,7 @@ views using the api:
 + login
 + signup
 
+## Built with
+- ![React.js](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+- ![JQuery.com](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white)
+- ![Node.com](https://img.shields.io/badge/nodejs-0769AD?style=for-the-badge&logo=nodejs&logoColor=white)
